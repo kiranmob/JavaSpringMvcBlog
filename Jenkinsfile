@@ -2,7 +2,7 @@ node
 { 
  stage ('SCM Checkout') 
 { 
- git 'https://github.com/ajit2525/JavaSpringMvcBlog-1.git' 
+ git 'https://github.com/kiranmob/JavaSpringMvcBlog-1.git' 
 } 
  stage ('Test Package') 
 { 
