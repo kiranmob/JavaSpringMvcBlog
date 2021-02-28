@@ -43,7 +43,8 @@ node
  }
  stage ('Artifact upload') 
 { 
-  def server = Artifactory.server 'jenkins_artifactory' def uploadSpec = """{ 
+  def server = Artifactory.server 'jenkins_artifactory' 
+  def uploadSpec = """{ 
   "files": [ 
     { 
       "pattern": "/var/lib/jenkins/workspace/PluralSight1/target/*.war",
