@@ -48,7 +48,7 @@ node
   "files": [ 
     { 
       "pattern": "/var/lib/jenkins/workspace/PluralSight1/target/*.war",
-      "target": "Blog-snapshot" 
+      "target": "blog-snapshot" 
  } 
   ] 
     }""" 
