@@ -47,7 +47,7 @@ node
   def uploadSpec = """{ 
   "files": [ 
     { 
-      "pattern": "/var/lib/jenkins/workspace/PluralSight1/target/*.war",
+      "pattern": "/var/jenkins_home/workspace/Maven-Job/maven-cicd-pipleine/target/*.war",
       "target": "blog-snapshot" 
  } 
   ] 
