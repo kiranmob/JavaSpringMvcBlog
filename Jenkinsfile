@@ -30,6 +30,7 @@ node
   stage ('Build Package') 
  { 
    sh 'mvn package' 
+   sh 'mv /var/jenkins_home/workspace/Maven-Job/maven-cicd-pipleine/target/blog.war /var/jenkins_home/workspace/Maven-Job/maven-cicd-pipleine/target/blog-$BUILD_NUMBER.war'
   }
  } 
  catch(err) 
@@ -61,7 +62,7 @@ node
   "files":[ 
   { 18 
 
-   "pattern":"blog-snapshot/blog.war", 
+   "pattern":"blog-snapshot/blog-$BUILD_NUMBER.war", 
    "target":"/var/jenkins_home/war/" 
    } 
   ] 
@@ -70,6 +71,7 @@ node
 } 
 stage('Deploy to Tomcat') 
 { 
+    sh 'mv /var/jenkins_home/war/blog-$BUILD_NUMBER.war /var/jenkins_home/war/blog.war'
     sh 'scp /var/jenkins_home/war/blog.war ubuntu@54.90.157.179:/usr/local/apache-tomcat-8.5.63/webapps/' 
   } 
  }
