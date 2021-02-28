@@ -54,4 +54,22 @@ node
     }""" 
   server.upload(uploadSpec)
   } 
+ stage('Downloading artifact') 
+ { 
+  def server = Artifactory.server 'jenkins_artifactory' 
+  def downloadSpec="""{ 
+  "files":[ 
+  { 18 
+
+   "pattern":"blog-snapshot/blog.war", 
+   "target":"/var/jenkins_home/war/" 
+   } 
+  ] 
+  }"""  
+  server.download(downloadSpec) 
+} 
+stage('Deploy to Tomcat') 
+{ 
+    sh 'scp /var/jenkins_home/war/blog.war ubuntu@54.90.157.179:/usr/local/apache-tomcat-8.5.63/webapps/' 
+  } 
  }
