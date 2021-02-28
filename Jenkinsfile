@@ -10,7 +10,7 @@ node
 } 
  stage ('Sonarqube ') 
 { 
-  withSonarQubeEnv('jenkins_sonarqube') { 
+  withSonarQubeEnv('Sonarcloud') { 
    sh "mvn sonar:sonar" 
   } 
  } 
