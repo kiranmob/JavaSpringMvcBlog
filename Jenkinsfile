@@ -62,7 +62,7 @@ node
   "files":[ 
   { 18 
 
-   "pattern":"blog-snapshot/blog-$BUILD_NUMBER.war", 
+   "pattern":"blog-snapshot/*.war", 
    "target":"/var/jenkins_home/war/" 
    } 
   ] 
