@@ -60,7 +60,7 @@ node
   def server = Artifactory.server 'jenkins_artifactory' 
   def downloadSpec="""{ 
   "files":[ 
-  { 18 
+  { 
 
    "pattern":"blog-snapshot/*.war", 
    "target":"/var/jenkins_home/war/" 
