@@ -30,7 +30,7 @@ node
   stage ('Build Package') 
  { 
    sh 'mvn package' 
-   sh 'mv /var/jenkins_home/workspace/Maven-Job/maven-cicd-pipleine/target/blog.war /var/jenkins_home/workspace/Maven-Job/maven-cicd-pipleine/target/blog-$BUILD_NUMBER.war'
+   //sh 'mv /var/jenkins_home/workspace/Maven-Job/maven-cicd-pipleine/target/blog.war /var/jenkins_home/workspace/Maven-Job/maven-cicd-pipleine/target/blog-$BUILD_NUMBER.war'
   }
  } 
  catch(err) 
