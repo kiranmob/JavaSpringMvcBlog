@@ -72,6 +72,6 @@ node
 stage('Deploy to Tomcat') 
 { 
    // sh 'mv /var/jenkins_home/war/blog-$BUILD_NUMBER.war /var/jenkins_home/war/blog.war'
-    sh 'scp /var/jenkins_home/workspace/Maven-Job/maven-cicd-pipleine/target/*.war ubuntu@54.147.145.195:/usr/local/apache-tomcat-8.5.63/webapps/' 
+    sh 'scp /var/jenkins_home/workspace/Maven-Job/maven-cicd-pipleine/target/blog.war ubuntu@54.147.145.195:/usr/local/apache-tomcat-8.5.63/webapps/' 
   } 
  }
