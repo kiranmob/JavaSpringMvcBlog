@@ -42,36 +42,36 @@ node
         Regards''', subject: 'Build Failed', to: 'ajiteee2394@gmail.com' 
    } 
  }
- stage ('Artifact upload') 
-{ 
-  def server = Artifactory.server 'jenkins_artifactory' 
-  def uploadSpec = """{ 
-  "files": [ 
-    { 
-      "pattern": "/var/jenkins_home/workspace/Maven-Job/maven-cicd-pipleine/target/*.war",
-      "target": "blog-snapshot" 
- } 
-  ] 
-    }""" 
-  server.upload(uploadSpec)
-  } 
- stage('Downloading artifact') 
- { 
-  def server = Artifactory.server 'jenkins_artifactory' 
-  def downloadSpec="""{ 
-  "files":[ 
-  { 
+ //stage ('Artifact upload') 
+//{ 
+  //def server = Artifactory.server 'jenkins_artifactory' 
+  //def uploadSpec = """{ 
+  //"files": [ 
+   // { 
+     // "pattern": "/var/jenkins_home/workspace/Maven-Job/maven-cicd-pipleine/target/*.war",
+      //"target": "blog-snapshot" 
+ //} 
+  //] 
+    //}""" 
+  //server.upload(uploadSpec)
+  //} 
+ //stage('Downloading artifact') 
+ //{ 
+  //def server = Artifactory.server 'jenkins_artifactory' 
+  //def downloadSpec="""{ 
+  //"files":[ 
+  //{ 
 
-   "pattern":"blog-snapshot/*.war", 
-   "target":"/var/jenkins_home/war/" 
-   } 
-  ] 
-  }"""  
-  server.download(downloadSpec) 
-} 
+   //"pattern":"blog-snapshot/*.war", 
+   //"target":"/var/jenkins_home/war/" 
+   //} 
+  //] 
+  //}"""  
+  //server.download(downloadSpec) 
+//} 
 stage('Deploy to Tomcat') 
 { 
-    sh 'mv /var/jenkins_home/war/blog-$BUILD_NUMBER.war /var/jenkins_home/war/blog.war'
-    sh 'scp /var/jenkins_home/war/blog.war ubuntu@54.147.145.195:/usr/local/apache-tomcat-8.5.63/webapps/' 
+   // sh 'mv /var/jenkins_home/war/blog-$BUILD_NUMBER.war /var/jenkins_home/war/blog.war'
+    sh 'scp /var/jenkins_home/workspace/Maven-Job/maven-cicd-pipleine/target/*.war ubuntu@54.147.145.195:/usr/local/apache-tomcat-8.5.63/webapps/' 
   } 
  }
